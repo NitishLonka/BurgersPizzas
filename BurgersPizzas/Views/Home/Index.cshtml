@@ -1,8 +1,42 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewBag.Title = "Home Page";
 }
+<link href="~/Styles/main.css" rel="stylesheet" />
+<body>
+    <div class="main">
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+
+        <div class="homeinfo-container">
+            <div class="img-container">
+                <img src="~/images/images.jpg" alt="nice table" class="img-container">
+            </div>
+            <div class="details">
+                <h1>Know your food . . .<br>Eat healthy, stay fit</h1>
+                <p class="infostyle">Eating healthy means following a healthy eating pattern that includes a variety of nutritious foods and drinks. It also means getting the number of calories that’s right for you (not eating too much or too little).</p>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+    <div class="loading"/>
+
+
+</body>
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $('.loading').hide();
+        $('.btun').click(function () {
+            debugger;
+            $('.loading').show();
+        })
+    });
+</script>

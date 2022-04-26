@@ -1,0 +1,52 @@
+﻿
+@model IEnumerable<burgerpizza.Models.ItemData>
+
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <link href="~/Styles/main.css" rel="stylesheet" />
+    <link href="~/Styles/Layout.css" rel="stylesheet" />
+    <link href="~/Styles/Loader.css" rel="stylesheet" />
+    <title></title>
+</head>
+<body>
+
+    <div class="btn-container-margin-left">
+        <button onclick="location.href = '@Url.Action("Update","Update")'"class="btun">Add</button>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <tr>
+                <th class="text-center">Receipe name</th>
+                <th class="text-center">Category</th>
+                <th class="text-center">Uploaded date</th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <th class="text-center">@Html.DisplayFor(x => item.Id)</th>
+                    <th class="text-center">@Html.DisplayFor(x => item.Name)</th>
+                    <th class="text-center">@Html.DisplayFor(x => item.Restaurant)</th>
+
+                </tr>
+            }
+        </table>
+    </div>
+
+    <div class="loading" />
+</body>
+</html>
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $('.loading').hide();
+        $('.btun').click(function () {
+            debugger;
+            $('.loading').show();
+        })
+
+    })
+
+</script>

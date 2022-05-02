@@ -1,0 +1,13 @@
+{
+  "dependencies": {
+    "secrets1": {
+      "type": "secrets.user"
+    },
+    "mssql1": {
+      "secretStore": "LocalSecretsFile",
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/azurenitish/databases/BurgersPizzas_db",
+      "type": "mssql.azure",
+      "connectionId": "Data:SchoolLocal:ConnectionString"
+    }
+  }
+}

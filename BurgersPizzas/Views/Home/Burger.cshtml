@@ -11,16 +11,16 @@
     <title></title>
 </head>
 <body>
-
+         
             <div class="btn-container-margin-left">
-                <button onclick="location.href = '@Url.Action("Update","Update")'">Add</button>
+                <button class="btun" onclick="location.href = '@Url.Action("Add","Home")'" style="background-color: forestgreen; cursor:pointer; padding: 10px 20px; margin-right: 10rem!important;width: 10rem">Add Item</button>
             </div>
+           
     <div class="table-responsive">
         <table class="table table-bordered">
             <tr>
                 <th class="text-center" style="background-color: #deecb8;">Id</th>
                 <th class="text-center" style="background-color: #deecb8;">Name</th>
-                <th class="text-center" style="background-color: #deecb8;">Restaurant</th>
                 <th class="text-center" style="background-color: #deecb8;">Description</th>
                 <th class="text-center" style="background-color: #deecb8;">Link</th>
 
@@ -29,18 +29,18 @@
             {
         <tr>
             <th class="text-center">@Html.DisplayFor(x => item.Id)</th>
-            <th class="text-center">@Html.DisplayFor(x => item.Name)</th>
-            <th class="text-center">@Html.DisplayFor(x => item.Restaurant)</th>
+            <th class="text-center">
+            <a style="color:blue!important"href="@Url.Action("UpdaterForm","Home", new { Name = item.Name }, null)">@Html.DisplayFor(x => item.Name)</a></th>
             <th class="text-center">@Html.DisplayFor(x => item.Description)</th>
-            <th class="text-center"><a onclick="@item.Web" target="_blank">@item.Web</a></th>
+            <th class="text-center"><a style="color:blue!important"onclick="@item.Web" target="_blank">@item.Web</a></th>
 
 
         </tr>
             }
         </table>
     </div>
-
-    <div class="loading"/>
+     <div class="loading"/>
+    
 </body>
 </html>
 <script src="~/Scripts/jquery-3.4.1.min.js"></script>

@@ -1,0 +1,389 @@
+/**
+Sample css code
+*/
+/* Set height to 100% for body and html to enable the background image to cover the whole page: */
+@import "icons.css";
+
+body,
+html {
+    height: 100%;
+}
+
+/*Set background image*/
+.container {
+    background-image: url('https://doc-10-ao-docs.googleusercontent.com/docs/securesc/ha0ro937gcuc7l7deffksulhg5h7mbp1/r085o9ungppbiokopob2sfbekae4uqbb/1537920000000/14802840322886517493/*/110cT8sl-pOiHGgj9yToPkAqAzrr-RNfb');
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+}
+
+/* Position text in the middle */
+.middle {
+    position: absolute;
+    color: beige;
+    top: 70%;
+    left: 39%;
+    text-align: center;
+    font-size: 25px;
+}
+
+    /*Set circle in unordered list*/
+    .middle ul {
+        list-style-type: circle;
+    }
+
+        /*Set text inside li tag to left*/
+        .middle ul li {
+            text-align: left !important;
+        }
+
+            /*Set text color for a tag inside middle class and ul>li element*/
+            .middle ul li a {
+                color: beige;
+            }
+
+                /*Change text color and decoration for a tags inside middle class and ul>li element*/
+                .middle ul li a:hover {
+                    color: red;
+                    text-decoration: none;
+                }
+
+.navbar {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    height: 3rem;
+}
+
+.btn-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 25rem;
+}
+.btn-container-margin-left {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 25rem;
+    margin-left: 90%;
+}
+
+.logo {
+    display: flex;
+    justify-content: left;
+    height: 3rem;
+    width: 5rem;
+}
+
+.card-container {
+    padding: 1rem 18rem 5rem 18rem;
+    display: flex;
+    flex-direction: row;
+    background-color: #EAFAF1;
+}
+
+.card {
+    width: 15rem;
+    height: 20rem;
+    margin: 0.5rem;
+    padding: 1rem;
+    border: 0.2rem solid grey;
+    background-color: #F8F9F9;
+}
+
+h4 {
+    margin: 1.2rem 0.2rem 0.2rem 0.2rem;
+    letter-spacing: 0.2rem;
+    font-family: Arial;
+}
+
+.author-container {
+    display: flex;
+    flex-direction: row;
+    padding: 3rem 25rem 5rem 25rem;
+    background-color: #E8F8F5;
+    align-items: center;
+}
+
+.author {
+    width: 20rem;
+    height: 35rem;
+    padding: 1rem;
+    margin: 2.5rem;
+    border: 0.25rem solid grey;
+    align-items: center;
+    background-color: #F8F9F9;
+}
+
+.item {
+    width: 60rem;
+    height: 30rem;
+    padding: 1rem 2.5rem 2rem 2.5rem;
+    display: flex;
+    flex-direction: row;
+}
+
+.img-container {
+    width: 35rem;
+    height: 30rem;
+    padding: 2rem 2.5rem 2rem 2.5rem;
+}
+
+.description {
+    font-family: Arial;
+}
+
+.det {
+    margin-top: 0.2rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1rem;
+}
+
+.details a {
+    display: flex;
+    flex-direction: row;
+}
+
+.search-container {
+    padding: 1.5rem 0.5rem 0.5rem 0.5rem;
+    width: 20rem;
+    height: 2.5rem;
+    display: flex;
+    flex-direction: row;
+}
+
+    .search-container button:hover {
+        opacity: 0.7;
+    }
+
+.icon {
+    height: 2rem;
+    width: 1rem;
+}
+
+.form-control label {
+    display: block;
+    margin-bottom: 1.25rem;
+    font-weight: bold;
+    letter-spacing: 0.25rem;
+    color: var(--primaryColor);
+}
+
+.search-container input {
+    width: 100%;
+    border: 0.25rem solid black;
+    border-color: darkgrey;
+    background: var(--mainBackground);
+    border-radius: var(--mainBorderRadius);
+    padding: 0.5rem;
+    font-size: 1.2rem;
+}
+
+button {
+    background-color: #90EE90;
+    padding: 0.5rem;
+    margin-right: 0.5rem;
+    margin-top: 1rem;
+    border: 0.5px;
+    cursor: pointer;
+    height: 2.5rem;
+    width: 5rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 500;
+    font-size: medium;
+}
+
+    button:hover {
+        opacity: 0.7;
+    }
+
+.btn {
+    background: #ddd;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+}
+
+.title {
+    font-size: 2rem;
+    text-transform: capitalize;
+    letter-spacing: var(--mainSpacing);
+    text-align: center;
+    margin-bottom: 1.5rem;
+    margin-top: 2rem;
+}
+
+.cardbutton {
+    background-color: #deecb8;
+    padding: 0.5rem;
+    margin-right: 0.5rem;
+    margin-top: 0.5rem;
+    border: 0.5px;
+    cursor: pointer;
+    height: 2rem;
+    width: 5rem;
+    font-family: 'Arial Rounded MT';
+}
+
+.additem {
+    background-color: #deecb8;
+    padding: 0.2rem;
+    margin-right: 0.5rem;
+    margin-top: 0.5rem;
+    border: 0.5px;
+    cursor: pointer;
+    height: 2rem;
+    width: 10rem;
+    font-family: 'Arial Rounded MT' font-weight: 500;
+    font-size: medium;
+}
+
+.details {
+    padding: 1rem;
+}
+
+table, td, th {
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    padding: 15px;
+}
+
+.removebtn {
+    background-color: #f08080;
+    padding: 0.5rem;
+    margin-right: 0.5rem;
+    margin-top: 0.5rem;
+    border: 0.5px;
+    cursor: pointer;
+    height: 2rem;
+    width: 5rem;
+    font-family: 'Arial Rounded MT';
+    font-weight: 500;
+    font-size: medium;
+}
+
+.pd {
+    display: inline-block;
+    width: 5rem;
+}
+
+.profilecontent {
+    margin: 5rem;
+    padding: 1rem;
+}
+
+.favorite {
+    background-color: #EAF2F8;
+    padding: 1rem;
+    margin-bottom: 3rem;
+}
+
+.homeinfo-container {
+    padding: 1rem;
+    align-items: center;
+    padding-right: 20rem;
+    display: flex;
+    flex-direction: row;
+    background-color: #EBEDEF;
+}
+
+.main {
+    margin: 1rem 3rem 0rem 3rem; 
+}
+
+.infostyle {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+
+.search {
+    background-color: #A3E4D7;
+    margin-top: 0rem;
+    padding: 0rem;
+}
+
+.logindetails {
+    width: 100%;
+    margin: 8px 0;
+    padding: 12px 20px;
+    display: inline-block;
+    border: 2px solid green;
+    box-sizing: border-box;
+}
+
+.usercontainer {
+    margin: 2rem 15rem 15rem 15rem;
+}
+
+.infor {
+    display: inline-block;
+    width: 5rem;
+}
+.receipename {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 2.5rem;
+    color: #0D619B;
+}
+.receipe-container {
+}
+
+.receipeimg-container {
+}
+
+.receipedetails {
+}
+
+.sameline {
+    display: flex;
+    flex-direction: row;
+}
+.sidehead {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-top: 1rem;
+    color: #14607C;
+}
+.sidevalues {
+   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.instructions{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size:1.5rem;
+}
+.underline {  
+    width: 20rem;
+    height: 0.25rem;
+    background: #9EBF88;
+}
+td {
+    background-color: #DFFCFF;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 600;
+    color: #014378;
+}
+th {
+    background-color: #DFFFEE;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight:700;
+    font-size:1.15rem;
+   
+}
+.receipelistcontainer{
+    margin:5rem;
+
+}
+th, td {
+    padding: 15px;
+
+}
+.table-responsive{
+    margin:5rem;
+}

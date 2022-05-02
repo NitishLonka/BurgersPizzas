@@ -1,0 +1,177 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+    <!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <link href="~/Styles/main.css" rel="stylesheet" />
+    <link href="~/Styles/Layout.css" rel="stylesheet" />
+    <title></title>
+            <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<body onload="draw()">
+    <div class=container>
+    <div class="row">
+    <div class="author-container">
+        <div class="author">
+            <img src="~/images/nitishdis.jpg" />
+            <h4>Nitish Lonka</h4>
+            <p class="infostyle">Nitish is pursuing Masters in BAIS at USF.He is intrested in web development and software development.He has created Homepage,Update and List pages for this website<p>
+        </div>
+        <div class="author">
+            <img src="~/images/shivxdis.jpeg">
+            <h4>Shiva sai Ganesh .M</h4>
+            <p class="infostyle">shiva is pursuing Masters in BAIS at USF.He is intrested in data analysis.He created about and nutrients page for this website<p>
+        </div>
+    </div>
+    </div>
+    </div>
+    <p class="title">Entity Relationship Diagram</p>
+    <div class="card-container">
+        <img src="~/images/erd.png">
+    </div>
+
+    <div>
+       
+            
+            <input type="hidden" value="@ViewBag.BurgerCount" id="burgerCount"/>
+            <input type="hidden" value="@ViewBag.PizzaCount" id="pizzaCount"/>
+            
+            <link rel="stylesheet" type="text/css" href="style.css" />
+        
+        
+            <div style="height: 50rem; width: 80rem;">
+                <canvas id="myChart"></canvas>
+            </div>
+       
+
+
+    </div>
+    <div style="margin-left:2rem">
+    <h2 class="sidehead">Project Details :</h2> 
+    <div class="underline" style="width: 10rem;!important"></div>
+     <div style="margin-top:2rem"></div>
+     <div class="sameline">
+        <h3 class="sidehead" style="color:black"> In this website one can perform create, update , delete operations on both burgers and pizzas.Along with these,you can also search for the nutrient details of an item.Below are the APIs used in building this website</h3>
+     </div>
+   
+      <div  class="sameline">
+       <h3 class="sidehead" style="color:black"> This API gets the nutrient information entered in search bar.Using AJAX call, this information is binded to the webpage</h3></div>
+    <div class="sameline">
+    <h3 class="sidehead">NutrientsAPI:</h3>
+    <h3 class="sidevalues" style="margin-top: 1.1rem;">https://calorieninjas.p.rapidapi.com/v1/nutrition?query=tomato</h3>
+    </div>
+    <div  class="sameline" >
+    <h3 class="sidehead">X-RapidAPI-Host:</h3>
+    <h3 class="sidevalues" style="margin-top: 1.1rem;">calorieninjas.p.rapidapi.com</h3>
+    </div>
+    <div  class="sameline">
+    <h3 class="sidehead">X-RapidAPI-Key:</h3>
+    <h3 class="sidevalues" style="margin-top: 1.1rem;">3ac31c34b3msh338b3e5ec340784p117e15jsn06d6ed3ffe76</h3>
+    </div>
+   <div style="margin-top:2rem"></div>
+    <div  class="sameline">
+        <h3 class="sidehead" style="color:black"> The below API gets the burgers list.This data is loaded into burgersdb table</h3>
+    </div>
+     <div class="sameline">
+    <h3 class="sidehead">BurgersAPI:</h3>
+    <h3 class="sidevalues" style="margin-top: 1.1rem;">https://burgers1.p.rapidapi.com/burgers</h3>
+    </div>
+    <div  class="sameline" >
+    <h3 class="sidehead">X-RapidAPI-Host:</h3>
+    <h3 class="sidevalues" style="margin-top: 1.1rem;">burgers1.p.rapidapi.com</h3>
+    </div>
+    <div  class="sameline">
+    <h3 class="sidehead">X-RapidAPI-Key:</h3>
+    <h3 class="sidevalues" style="margin-top: 1.1rem;">5a7f563dd0msh635408e9a35c696p12b244jsn633d591c0ec3</h3>
+    </div>
+   <div style="margin-top:2rem"></div>
+     <div class="sameline">
+        <h3 class="sidehead" style="color:black"> The below API gets the pizzas list.This data is loaded into pizzasdb table</h3>
+     </div>
+     <div  class="sameline">
+    <h3 class="sidehead">PizzasAPI:</h3>
+    <h3 class="sidevalues" style="margin-top: 1.1rem;">https://new-pizza-api.p.rapidapi.com/Pizzas</h3>
+    </div>
+    <div class="sameline" >
+    <h3 class="sidehead">X-RapidAPI-Host:</h3>
+    <h3 class="sidevalues" style="margin-top: 1.1rem;">calorieninjas.p.rapidapi.com</h3>
+    </div>
+    <div  class="sameline">
+    <h3 class="sidehead">X-RapidAPI-Key:</h3>
+    <h3 class="sidevalues" style="margin-top: 1.1rem;">f0c80d2a20msh4aa5b1003ed1d27p14a0f1jsneab211879b82</h3>
+    </div>
+   
+    </div>
+   
+</body>
+</html>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+          
+             <script>
+                function draw() {
+                    debugger;
+                    var bCount = @ViewBag.BurgerCount;
+                    var pCount = @ViewBag.PizzaCount;
+                    var xlabels = ["burgers", "pizzas"]
+                    var count = [bCount, pCount]
+                    var ctx = document.getElementById("myChart");
+                    var myChart = new Chart(ctx, {
+
+
+                        type: 'bar',
+                        data: {
+                            labels: xlabels,
+                            datasets: [
+                                {
+
+                                    data: count,
+                                    backgroundColor: [
+                                        'rgba(255, 99, 132, 0.2)',
+                                        'rgba(255, 159, 64, 0.2)'
+                                    ],
+                                    borderColor: [
+                                        'rgb(255, 99, 132)',
+                                        'rgb(255, 159, 64)',
+                                    ],
+                                    borderWidth: 1
+
+                                }
+                            ]
+                        },
+                        options: {
+                             plugins: {
+                               legend: {
+                               display: false
+                            }
+                          },
+                            scales: {
+                                yAxes: [{
+                                    ticks: {
+                                        fontSize: 15
+                                    }
+                                }],
+                                xAxes: [{
+                                    ticks: {
+                                        fontSize: 20
+                                    }
+                                }]
+                            },
+                                 title: {
+                                    display: true,
+                                    text: 'No.of Burgers vs No.of Pizzas',
+                                    fontSize:30
+                           }
+                          
+        
+
+                        }
+                    });
+                }
+            </script>
+           

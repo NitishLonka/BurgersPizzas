@@ -1,0 +1,52 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+    @model BurgersPizzas.Models.ItemData
+@{ ViewBag.Title = "Description"; }
+
+<!--Your HTML code here-->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link href="~/Styles/main.css" rel="stylesheet" />
+    <link href="~/Styles/Layout.css" rel="stylesheet" />
+    <title></title>
+</head>
+<body>
+
+    <div class="row" id="nutrients-data">
+
+        <div class="receipe-container" id="receipe-container">
+            <div class="item">
+                <div class="receipedetails">
+                    <div class="sameline">
+                        <h2 class="sidehead">@Model.Name</h2>
+                    </div>
+
+                    <div class="sameline">
+                        <h2 class="sidehead">Description</h2>
+                        <h2 class="sidevalues" style="margin-top: 1.1rem;">@Model.Description</h2>
+                    </div>
+                    <div class="sameline">
+                        <h2 class="sidehead">Ingredients</h2>
+                        <h2 class="sidevalues" style="margin-top: 1.2rem;">@Model.Ingredients</h2>
+                    </div>
+                    <div class="sameline">
+                        <h2 class="sidehead">Link</h2>
+                        <h2 class="sidevalues" style="margin-top: 1.2rem;">@Model.Web</h2>
+                    </div>
+                </div>
+
+                <div class="btn-container" style=" display: flex; justify-content: space-between;">
+               <button class="btn btn-success" onclick="location.href ='@Url.Action("Update","Update",new {Name = Model.Name})'" type="button" style="background-color: forestgreen; cursor:pointer; padding: 10px 20px">Update</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+}

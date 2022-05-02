@@ -1,0 +1,136 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    <!--Your HTML code here-->
+    }
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link href="~/Styles/main.css" rel="stylesheet" />
+    <link href="~/Styles/Layout.css" rel="stylesheet" />
+    <title></title>
+</head>
+<body>
+    <div class="main">
+        <div class="navbar" style="width:100%; height:50%">
+            <div class="search-container" style="width:30%;height:4.5%">
+                <input type="text" id="search" placeholder="Search For Items.." name="search">
+                <button class="search" type="button" id="btn-search" style="background-color: forestgreen; cursor:pointer;height: 2.8rem;!important;">search</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" id="nutrients-data">
+
+            <div class="receipe-container" id="receipe-container">
+                <div class="item">
+                    <div class="receipedetails">
+                            <h2 class="sidehead">Nutrients Information :</h2>                
+                            <div class="underline"></div>
+                        <div class="sameline">
+                            <h2 class="sidehead">sugar(g) :</h2>
+                            <h2 class="sidevalues" style="margin-top: 1.1rem;">---</h2>
+                        </div>
+                        <div class="sameline">
+                            <h2 class="sidehead">fiber(g) :</h2>
+                            <h2 class="sidevalues" style="margin-top: 1.2rem;">---</h2>
+                        </div>
+                        <div class="sameline">
+                            <h2 class="sidehead">servingsize(g) : </h2>
+                            <h2 class="sidevalues" style="margin-top: 1.2rem;">---</h2>
+                        </div>
+                        <div class="sameline">
+                            <h2 class="sidehead">sodium(mg) : </h2>
+                            <h2 class="sidevalues" style="margin-top: 1.2rem;">---</h2>
+                        </div>
+                        <div class="sameline">
+                            <h2 class="sidehead">potassium(mg) : </h2>
+                            <h2 class="sidevalues" style="margin-top: 1.2rem;">---</h2>
+                        </div>
+                        <div class="sameline">
+                            <h2 class="sidehead">fat_saturated(g) : </h2>
+                            <h2 class="sidevalues" style="margin-top: 1.2rem;">---</h2>
+                        </div>
+                        <div class="sameline">
+                            <h2 class="sidehead">fat_total(g) : </h2>
+                            <h2 class="sidevalues" style="margin-top: 1.2rem;">---</h2>
+                        </div>
+                        <div class="sameline">
+                            <h2 class="sidehead">calories : </h2>
+                            <h2 class="sidevalues" style="margin-top: 1.2rem;">---</h2>
+                        </div>
+                        <div class="sameline">
+                            <h2 class="sidehead">cholesterol(mg) : </h2>
+                            <h2 class="sidevalues" style="margin-top: 1.2rem;">---</h2>
+                        </div>
+                        <div class="sameline">
+                            <h2 class="sidehead">protein(g) : </h2>
+                            <h2 class="sidevalues" style="margin-top: 1.2rem;">---</h2>
+                        </div>
+                        <div class="sameline">
+                            <h2 class="sidehead">carbohydrates_total(g) : </h2>
+                            <h2 class="sidevalues" style="margin-top: 1.2rem;">---</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</body>
+
+</html>
+
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.loading').hide();
+        $('.btun').click(function () {
+            debugger;
+            $('.loading').show();
+        })
+
+        $('#btn-search').click(function () {
+            debugger;
+            var serviceURL = '@Url.Action("GetAjax","Home")';
+            var param1 = $('#search').val();
+            $.ajax({
+                type: "GET",
+                url: serviceURL,
+               data: { param: param1 } ,
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: successFunc,
+                error: errorFunc
+            });
+            function successFunc(data) {
+                $('#nutrients-data').empty();
+                $('#nutrients-data').html('<div class="receipe-container" id="receipe-container">'+
+                    '<div class= "item">'+
+                    '<div class="receipedetails">' +
+                    '<h2 class="sidehead">Nutrients Information :</h2>'+
+                    '<div class="underline"></div>' +
+                    '<div class="sameline"><h2 class="sidehead">sugar(g) : </h2><h2 class="sidevalues" style="margin-top: 1.2rem;">' + data.sugar_g + '</h2 ></div > ' +
+                    '<div class="sameline"><h2 class="sidehead">fiber(g) : </h2><h2 class="sidevalues" style="margin-top: 1.2rem;">' + data.fiber_g + '</h2></div>' +
+                    '<div class="sameline"><h2 class="sidehead">serving size(g) : </h2><h2 class="sidevalues" style="margin-top: 1.2rem;">' + data.serving_size_g +'</h2></div>' +
+                    '<div class="sameline"><h2 class="sidehead">sodium(mg) : </h2><h2 class="sidevalues" style="margin-top: 1.2rem;">' + data.sodium_mg +'</h2></div>' +
+                    '<div class="sameline"><h2 class="sidehead">pottasium(mg) : </h2><h2 class="sidevalues" style="margin-top: 1.2rem;">' + data.potassium_mg +'</h2></div>' +
+                    '<div class="sameline"><h2 class="sidehead">fat_saturated(g) : </h2><h2 class="sidevalues" style="margin-top: 1.2rem;">' + data.fat_saturated_g +'</h2></div>' +
+                    '<div class="sameline"><h2 class="sidehead">fat_total(g) : </h2><h2 class="sidevalues" style="margin-top: 1.2rem;">' + data.fat_total_g +'</h2></div>' +
+                    '<div class="sameline"><h2 class="sidehead">calories(g) : </h2><h2 class="sidevalues" style="margin-top: 1.2rem;">' + data.calories +'</h2></div>' +
+                    '<div class="sameline"><h2 class="sidehead">cholestrol(mg) : </h2><h2 class="sidevalues" style="margin-top: 1.2rem;">' + data.cholesterol_mg +'</h2></div>' +
+                    '<div class="sameline"><h2 class="sidehead">protein(g) : </h2><h2 class="sidevalues" style="margin-top: 1.2rem;">' + data.protein_g +'</h2></div>' +
+                    '<div class="sameline"><h2 class="sidehead">carbohydrates total (g) : </h2><h2 class="sidevalues" style="margin-top: 1.2rem;">' + data.carbohydrates_total_g + '</h2></div>' +
+                    
+                    '</div >' +
+                    '</div >'
+                );
+            }
+            function errorFunc(data) {
+                alert('error');
+            }
+        });
+
+    })</script>
+

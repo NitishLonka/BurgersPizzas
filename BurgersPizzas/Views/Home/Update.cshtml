@@ -1,0 +1,111 @@
+﻿@model BurgersPizzas.Models.ItemData
+
+@{ ViewBag.Title = "Update"; }
+
+<link href="~/styles/UpdateStyle.css" rel="stylesheet" />
+<body style="justify-content: center; align-items: center; background-color:#EBEDEF;" ;>
+
+   
+   @using (Html.BeginForm("AddItem", "Home", FormMethod.Post))
+    {
+    <div class="row">
+
+
+
+        <div class="container">
+            <div class="title">Enter Details</div>
+
+
+
+
+            <div class="form">
+                <div class="user-details">
+                     @{ 
+
+                        if (@Model.isDisabled)
+                        {
+                    <div class="input-box disabled">
+                        <span class="details">Name</span>
+                        @Html.TextBoxFor(x => x.Name, new { @class = "inputa disabled", @disabled = "true" })
+                        @Html.HiddenFor(x => x.Name,new{@id="name"})
+                            </div>
+                        }
+                        else
+                        {
+                              <div class="input-box">
+                        <span class="details">Name</span>
+                        @Html.TextBoxFor(x => x.Name, new { @class = "inputa"  ,required="required"})
+                    </div>
+
+                        }
+                        }
+                    <div class="input-box">
+                        <span class="details">Description</span>
+                        @Html.TextBoxFor(x => x.Description, new { @class = "inputa" ,required="required"})
+                        @Html.HiddenFor(x=>x.isDisabled,new{@id="isdisabled"})
+                        @Html.HiddenFor(x=>x.isBurger,new{@id="isburger"})
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Ingredients</span>
+                        @Html.TextBoxFor(x => x.Ingredients, new { @class = "inputa" ,required="required" })
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Link</span>
+                        @Html.TextBoxFor(x => x.Web, new { @class = "inputa" ,required="required"})
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="btn-container" style=" display: flex; justify-content: space-between;">
+                <button class="btn btn-danger btun" onclick="'@Url.Action("Index","Home")'" type="button" id="cancel"style="background-color: orangered; cursor:pointer; padding: 10px 20px">Back</button>
+                @{
+                    if(@Model.isDisabled){
+                            <button class="btn btn-danger btun" onclick="'@Url.Action("Delete","Home")'" type="button" id="delete" style="background-color: red; cursor:pointer; padding: 10px 20px;margin-left: 50%;">Delete</button>
+                        }
+                    }
+                    <button class="btn btn-success btun" onclick="" type="submit" style="background-color: forestgreen; cursor:pointer; padding: 10px 20px">Save</button>
+                </div>
+                  @{
+                if (ViewBag.Message != null)
+                {
+                    <div style="margin-top:20px">
+                        <h3 style="color:red!important">@ViewBag.Message</h3>
+                    </div>
+                }
+         } 
+
+
+            </div>
+          
+        </div>
+    }
+
+    <div class="loading" id="loading"/>
+
+</body>
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script type="text/javascript">$(document).ready(function () {
+        $('.loading').hide();
+        $('.btun').click(function () {
+            debugger;
+              $('.loading').show();
+        })
+        $('#cancel').click(
+        function (event) {
+            debugger;
+                event.preventDefault();
+            window.location = '@Url.Action("Index", "Home")';
+        }
+        )
+        $('#delete').click(
+        function (event,btnclick) {
+            debugger;
+            event.preventDefault();
+            var param =  $('#name').val();
+            var url = '@Url.Action("Delete", "Home", new { Name = "__param__" })';
+            window.location.href = url.replace('__param__', encodeURIComponent(param));          
+        }
+        )
+    
+    })</script>

@@ -1,0 +1,67 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model BurgersPizzas.Models.ItemData
+
+<div>  
+    
+    <div class="modal-header">  
+       <h4 class="modal-title" id="myModalLabel">FriendsInfo</h4>
+    </div>                 
+         
+    <dl style="padding-top:1rem;padding-bottom:3rem;"> 
+        <div class='sameline'>
+        <h3 class='sidehead'>  
+            @Html.DisplayNameFor(model => model.Name) : 
+        </h3>  
+  
+        <h3 class='sidevalues' style="margin-top: 1.1rem;padding-left:0.5rem">  
+            @Html.DisplayFor(model => model.Name)  
+        </h3>  
+        </div>
+        <div class='sameline'>
+        <h3 class='sidehead'>  
+            @Html.DisplayNameFor(model => model.Description) :
+        </h3>  
+  
+        <h3 class='sidevalues' style="margin-top: 1.1rem;padding-left:0.5rem">  
+            @Html.DisplayFor(model => model.Description)  
+        </h3>  
+        </div>
+        <div class='sameline'>
+        <h3 class='sidehead'>  
+            @Html.DisplayNameFor(model => model.Ingredients) : 
+        </h3>  
+  
+        <h3 class='sidevalues' style="margin-top: 1.1rem;padding-left:0.5rem">  
+            @Html.DisplayFor(model => model.Ingredients)  
+        </h3> 
+        </div>
+         <div class='sameline'>
+        <h3 class='sidehead'>  
+            @Html.DisplayNameFor(model => model.Web) : 
+        </h3>  
+  
+        <h3 class='sidevalues' style="margin-top: 1.1rem;padding-left:0.5rem">  
+            @Html.DisplayFor(model => model.Web)  
+        </h3> 
+        </div>
+    </dl> 
+    
+
+             <div class="modal-footer">  
+                  <div class="btn-container" style=" display: flex; justify-content: space-between; padding-left:3rem;">
+              
+                    <button class="btn btn-success btun" onclick="" type="submit" style="background-color: forestgreen; cursor:pointer; padding: 10px 20px width:7rem;">Update</button>
+               
+                    <button class="btn btn-danger btun" class="close" data-dismiss="modal" aria-hidden="true" style="background-color: red; cursor:pointer; padding: 10px 20px;margin-left: 50%;">close</button> 
+                </div>
+                 
+         
+
+
+            </div>
+    </div> 
+
+</div>  
+ 

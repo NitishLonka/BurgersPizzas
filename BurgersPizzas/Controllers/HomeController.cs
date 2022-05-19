@@ -178,6 +178,7 @@ namespace BurgersPizzas.Controllers
         public async Task<IActionResult> Pizza()
         {
             var burgers = dbContext.PizzasDb.Include(c => c.Category).ToList();
+            
             List<ItemData> l = new List<ItemData>();
             foreach (var b in burgers)
             {
@@ -357,7 +358,7 @@ namespace BurgersPizzas.Controllers
             return stream;
         }
         [System.Web.Mvc.HttpGet]
-        public ActionResult UpdaterForm(string Name)
+        public PartialViewResult UpdaterForm(string Name)
         {
            if(Convert.ToBoolean(TempData["isburger"])==true)
             {
@@ -365,14 +366,14 @@ namespace BurgersPizzas.Controllers
                 
                var burger= dbContext.BurgersDb.Where(x => x.Name == Name).ToList()[0];
                 ItemData itm = new ItemData() {Ingredients=burger.Ingredients,Web=burger.Web,Description=burger.Description,Name=burger.Name,isDisabled=true};
-                return View("~/Views/Home/Update.cshtml", itm);
+                return PartialView("~/Views/Shared/_Popup.cshtml",itm);
             }
             else
             {
                 TempData.Keep();
                 var pizza = dbContext.PizzasDb.Where(x => x.Name == Name).ToList()[0];
                 ItemData itm = new ItemData() { Ingredients = pizza.Ingredients, Web = pizza.Web, Description = pizza.Description, Name = pizza.Name ,isDisabled=true};
-                return View("~/Views/Home/Update.cshtml", itm);
+                return PartialView("~/Views/Home/Update.cshtml", itm);
             }
         }
         [HttpGet]

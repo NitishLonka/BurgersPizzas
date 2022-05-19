@@ -2,7 +2,6 @@
 Sample css code
 */
 /* Set height to 100% for body and html to enable the background image to cover the whole page: */
-@import "icons.css";
 
 body,
 html {
@@ -147,11 +146,7 @@ h4 {
 }
 
 .search-container {
-    padding: 1.5rem 0.5rem 0.5rem 0.5rem;
-    width: 20rem;
-    height: 2.5rem;
-    display: flex;
-    flex-direction: row;
+   
 }
 
     .search-container button:hover {
@@ -385,5 +380,9 @@ th, td {
 
 }
 .table-responsive{
-    margin:5rem;
+    margin:3rem;
+}
+.modal-backdrop {
+    background-color: rgba(0,0,0,0.5) !important;
+    opacity:0.5;
 }

@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
     <link href="~/Styles/Layout.css" rel="stylesheet" />
-    <script src="~/js/modernizr"></script>
+    <script src="~/js/modernizr-2.8.3.js"></script>
 
 </head>
 <body>
@@ -15,15 +15,15 @@
 
         <img src="~/images/Burger_logo.jpg" alt="nice table" width="60rem" height="45rem">
         <ul style="padding-right:49%;list-style: none!important;">
-            <li> <a class="btun" style="font-style: italic!important;font-weight: bold!important;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif!important;font-size:medium!important">Burgers&Pizzas</a></li>
+            <li> <a class="btun" style="font-style: italic!important;font-weight: bold!important;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif!important;font-size:medium!important;color:floralwhite;text-decoration:none">Burgers&Pizzas</a></li>
         </ul>
         <nav>
 
             <ul class="nav_links">
-                <li> <a href="@Url.Action("Index","Home")" class="btun">Home</a></li>
-                <li> <a href="@Url.Action("Burger","Home")" class="btun">Burgers</a></li>
-                <li> <a href="@Url.Action("Pizza","Home")" class="btun">Pizzas</a></li>
-                <li> <a href="@Url.Action("AboutUs","Home")">About us</a></li>
+                <li> <a href="@Url.Action("Index","Home")" class="btun"style="font-style: italic!important;font-weight: bold!important;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif!important;font-size:medium!important;color:floralwhite;text-decoration:none">Home</a></li>
+                <li> <a href="@Url.Action("Burger","Home")" class="btun"style="font-style: italic!important;font-weight: bold!important;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif!important;font-size:medium!important;color:floralwhite;text-decoration:none">Burgers</a></li>
+                <li> <a href="@Url.Action("Pizza","Home")" class="btun"style="font-style: italic!important;font-weight: bold!important;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif!important;font-size:medium!important;color:floralwhite;text-decoration:none">Pizzas</a></li>
+                <li> <a href="@Url.Action("AboutUs","Home")"style="font-style: italic!important;font-weight: bold!important;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif!important;font-size:medium!important;color:floralwhite;text-decoration:none">About us</a></li>
             </ul>
         </nav>
     </header>
@@ -33,8 +33,6 @@
 
    @* @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")*@
-    <script src="~/js/jquery"></script>
-    <script src="~/js/bootstrap"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     @RenderSection("scripts", required: false)

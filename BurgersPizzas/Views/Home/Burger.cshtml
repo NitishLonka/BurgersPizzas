@@ -5,54 +5,114 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
-    <link href="~/Styles/main.css" rel="stylesheet" />
+     <link href="~/Styles/main.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>  
     <link href="~/Styles/Layout.css" rel="stylesheet" />
     <link href="~/Styles/Loader.css" rel="stylesheet" />
+    
     <title></title>
 </head>
 <body>
-         
-            <div class="btn-container-margin-left">
-                <button class="btun" onclick="location.href = '@Url.Action("Add","Home")'" style="background-color: forestgreen; cursor:pointer; padding: 10px 20px; margin-right: 10rem!important;width: 10rem">Add Item</button>
+    
+       <div id='myModal' class='modal'style="background-color:rgba(0,0,0,0);!important"  tabindex="-1">  
+    <div class="modal-dialog">  
+        <div class="modal-content"  >  
+            <div id='myModalContent' style="z-index:1056;background-color:rgba(0,0,0,0);!important"></div>  
+        </div>  
+    </div> 
+    </div>
+    </div> 
+    <div id="kk">
+   
+            <div class="row justify-content-md-center">
+    <div class="col"></div>
+    <div class="col"></div>
+    <div class="col"></div>
+    <div class="col align-self-center"> <button class="btun" onclick="location.href = '@Url.Action("Add","Home")'" style="background-color: forestgreen; cursor:pointer; padding: 10px 20px; margin-right: 10rem!important;width: 10rem">Add Item</button></div>
+               
             </div>
-           
+         
     <div class="table-responsive">
         <table class="table table-bordered">
+            <thead class="table-dark">
             <tr>
-                <th class="text-center" style="background-color: #deecb8;">Id</th>
-                <th class="text-center" style="background-color: #deecb8;">Name</th>
-                <th class="text-center" style="background-color: #deecb8;">Description</th>
-                <th class="text-center" style="background-color: #deecb8;">Link</th>
-
+                <th class="text-center" >Id</th>
+                <th class="text-center" >Name</th>
+                <th class="text-center" >Description</th>
+                <th class="text-center">Link</th>
             </tr>
+            </thead>
             @foreach (var item in Model)
             {
         <tr>
-            <th class="text-center">@Html.DisplayFor(x => item.Id)</th>
+            <th class="text-center" >@Html.DisplayFor(x => item.Id)</th>
             <th class="text-center">
-            <a style="color:blue!important"href="@Url.Action("UpdaterForm","Home", new { Name = item.Name }, null)">@Html.DisplayFor(x => item.Name)</a></th>
+           @* <a style="color:blue!important"href="@Url.Action("UpdaterForm","Home", new { Name = item.Name }, null)" class="okay" id="okie">@Html.DisplayFor(x => item.Name)</a></th>*@
+            <a style="color:blue!important" href="javascript:void(0);" class="okay"  data-id="@item.Name">@Html.DisplayFor(x => item.Name)</a> 
             <th class="text-center">@Html.DisplayFor(x => item.Description)</th>
             <th class="text-center"><a style="color:blue!important"onclick="@item.Web" target="_blank">@item.Web</a></th>
-
-
         </tr>
             }
         </table>
     </div>
      <div class="loading"/>
-    
+     </div>
+ </div>
+  
 </body>
 </html>
-<script src="~/Scripts/jquery-3.4.1.min.js"></script>
-<script type="text/javascript">
+
+@section scripts  
+{  
+<script>  
+    var TeamDetailPostBackURL = '/Home/Updaterform'; 
+    $(document).ready(
+    function () { 
+        $(".okay").click(function (e) { 
+            e.preventDefault();
+            debugger;  
+            var $buttonClicked = $(this);  
+            var id = $buttonClicked.attr('data-id');  
+            var options = { "backdrop": "static", keyboard: true };  
+            $.ajax({  
+                type: "GET",  
+                url: TeamDetailPostBackURL,  
+                contentType: "application/json; charset=utf-8",  
+                data: { "Name": id },  
+                datatype: "json",  
+                success: function (data) {  
+                    debugger;  
+                    $('#myModalContent').html(data);  
+                    $('#myModal').modal(options);  
+                    $('#myModal').modal('show');  
+                },  
+                error: function () {  
+                    alert("Dynamic content load failed.");  
+                }  
+            });  
+        });  
+        //$("#closebtn").on('click',function(){  
+        //    $('#myModal').modal('hide');    
+  
+        $("#closbtn").click(function () {  
+            $('#myModal').modal('hide');  
+        });        
+    } 
+    )
+     
+</script>  
+  <script type="text/javascript">
 
     $(document).ready(function () {
         $('.loading').hide();
         $('.btun').click(function () {
             debugger;
             $('.loading').show();
+           
         })
-
     })
 
+
 </script>
+
+} 
